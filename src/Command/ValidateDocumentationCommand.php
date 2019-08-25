@@ -7,6 +7,7 @@ namespace Mamazu\DocumentationValidator\Bundle\Command;
 use Mamazu\DocumentationParser\Application;
 use Mamazu\DocumentationParser\Output\Formatter;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
@@ -33,12 +34,14 @@ class ValidateDocumentationCommand extends Command
 
     protected function configure()
     {
-        $this->setDescription('Validate the documentation');
+        $this->setDescription('Validate the documentation')
+            ->addArgument('filePaths', InputArgument::IS_ARRAY, 'Files to validate');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $errors = $this->application->parse();
+        $arguemnts = $input->getArgument('filePaths');
+        $errors = $this->application->parse($arguemnts);
 
         $io = new SymfonyStyle($input, $output);
 
