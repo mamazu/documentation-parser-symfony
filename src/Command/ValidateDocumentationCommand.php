@@ -42,11 +42,11 @@ class ValidateDocumentationCommand extends Command
     {
         $arguemnts = $input->getArgument('filePaths');
         $errors = $this->application->parse($arguemnts);
+        $errors = explode("\n", $this->formatter->format($errors));
 
         $io = new SymfonyStyle($input, $output);
-
         foreach($errors as $error) {
-            $io->error($this->formatter->format($error));
+            $io->error($error);
         }
     }
 }
