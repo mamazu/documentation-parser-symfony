@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "69d02ce607b278722dc9ef51308653db",
+    "content-hash": "8b3d7956c0f3987d3cb7bfb478682d45",
     "packages": [
         {
             "name": "mamazu/documentation-validator",
@@ -1778,6 +1778,8 @@
     },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": ">7.1"
+    },
     "platform-dev": []
 }

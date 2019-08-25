@@ -1,4 +1,9 @@
 <container xmlns="http://symfony.com/schema/dic/services">
+    <imports>
+        <import resource="validators.xml"/>
+        <import resource="parsers.xml"/>
+    </imports>
+
     <services>
         <service class="Mamazu\DocumentationValidator\Bundle\Command\ValidateDocumentationCommand"
                  id="documentation_validator.symfony_command">
@@ -12,9 +17,6 @@
             <argument type="service" id="documentation_validator.parser.aggregator"/>
             <argument type="service" id="documentation_validator.validator.aggregator"/>
         </service>
-
-        <service class="Mamazu\DocumentationParser\Validator\ValidatorAggregator" id="documentation_validator.validator.aggregator" />
-        <service class="Mamazu\DocumentationParser\Parser\ParserAggregator" id="documentation_validator.parser.aggregator"/>
 
         <service class="Mamazu\DocumentationParser\Output\Formatter" id="documentation_validator.formatter.default" />
     </services>

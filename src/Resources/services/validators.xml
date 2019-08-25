@@ -1,0 +1,16 @@
+<container xmlns="http://symfony.com/schema/dic/services">
+    <services>
+        <service class="Mamazu\DocumentationParser\Validator\ValidatorAggregator"
+                 id="documentation_validator.validator.aggregator"/>
+
+        <!-- Individual services -->
+        <service class="Mamazu\DocumentationParser\Validator\Validator\PHPValidator"
+                 id="documentation_validator.validator.php">
+            <argument type="service">
+                <service class="Mamazu\DocumentationParser\SystemAbstraction\CommandLineRunner"/>
+            </argument>
+
+            <tag name="documentation_validator.validator" key="php"/>
+        </service>
+    </services>
+</container>

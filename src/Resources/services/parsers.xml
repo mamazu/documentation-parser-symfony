@@ -1,0 +1,12 @@
+<container xmlns="http://symfony.com/schema/dic/services">
+    <services>
+        <service class="Mamazu\DocumentationParser\Parser\ParserAggregator"
+                 id="documentation_validator.parser.aggregator"/>
+
+        <!-- Individual services -->
+        <service class="Mamazu\DocumentationParser\Parser\Parser\MarkdownParser"
+                 id="documentation_validator.parser.markdown">
+            <tag name="documentation_validator.parser" key="markdown"/>
+        </service>
+    </services>
+</container>
