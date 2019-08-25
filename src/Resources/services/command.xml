@@ -1,0 +1,23 @@
+<container xmlns="http://symfony.com/schema/dic/services">
+    <services>
+        <service class="Mamazu\DocumentationValidator\Bundle\Command\ValidateDocumentationCommand"
+                 id="documentation_validator.symfony_command">
+            <argument type="service" id="documentation_validator.application" />
+            <argument type="service" id="documentation_validator.formatter.default" />
+
+            <tag name="console.command" />
+        </service>
+
+        <service class="Mamazu\DocumentationParser\Application" id="documentation_validator.application">
+            <argument type="service">
+                <service class="Mamazu\DocumentationParser\Configuration\Configuration">
+                    <argument type="collection">
+                        <argument>README.md</argument>
+                    </argument>
+                </service>
+            </argument>
+        </service>
+
+        <service class="Mamazu\DocumentationParser\Output\Formatter" id="documentation_validator.formatter.default" />
+    </services>
+</container>

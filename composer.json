@@ -1,0 +1,22 @@
+{
+    "name": "mamazu/documentation-validator-symfony",
+    "description": "A symfony plugin for validating documentation",
+    "type": "library",
+    "license": "Mit",
+    "authors": [
+        {
+            "name": "mamazu",
+            "email": "14860264+mamazu@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "mamazu/documentation-validator": "dev-new_structure",
+        "symfony/framework-bundle": ">4.0",
+        "symfony/console": ">4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mamazu\\DocumentationValidator\\Bundle\\": "src/"
+        }
+    }
+}
